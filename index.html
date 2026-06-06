@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>100 дней продаж</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-lightest: #f0f7ec;
+      --green-light:    #c8e6b8;
+      --green-mid:      #4a8c3f;
+      --green-dark:     #1a4d16;
+      --green-darkest:  #072b07;
+      --white:          #ffffff;
+      --text:           #1a1a1a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      color: var(--text);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100svh;
+      background: var(--green-darkest);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: clamp(2rem, 8vw, 6rem) clamp(1.25rem, 5vw, 3rem);
+    }
+
+    .hero__tag {
+      font-family: 'Jost', sans-serif;
+      font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--green-light);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero__title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.5rem, 12vw, 9rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero__subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      font-weight: 300;
+      color: var(--green-light);
+      max-width: 560px;
+      line-height: 1.6;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: clamp(0.85rem, 2vw, 1rem) clamp(2rem, 5vw, 2.8rem);
+      background: var(--green-mid);
+      color: var(--white);
+      font-family: 'Jost', sans-serif;
+      font-size: clamp(0.9rem, 2vw, 1rem);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.25s, transform 0.2s;
+    }
+    .btn:hover { background: var(--green-dark); transform: translateY(-2px); }
+
+    /* ── SECTIONS ── */
+    section { padding: clamp(4rem, 10vw, 7rem) clamp(1.25rem, 6vw, 3rem); }
+
+    .container { max-width: 860px; margin: 0 auto; }
+
+    .section-label {
+      font-size: clamp(0.65rem, 1.4vw, 0.78rem);
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--green-mid);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      font-weight: 600;
+      line-height: 1.1;
+      color: var(--green-darkest);
+      margin-bottom: 1.5rem;
+    }
+
+    .section-text {
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
+      font-weight: 300;
+      line-height: 1.8;
+      color: #3a3a3a;
+      margin-bottom: 2rem;
+    }
+
+    /* ── WHAT IS ── */
+    .what { background: var(--green-lightest); }
+
+    .what__list {
+      list-style: none;
+      display: grid;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .what__item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      background: var(--white);
+      padding: 1.25rem 1.5rem;
+      border-left: 3px solid var(--green-mid);
+    }
+
+    .what__num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--green-light);
+      line-height: 1;
+      min-width: 2rem;
+    }
+
+    .what__text {
+      font-size: clamp(0.9rem, 1.8vw, 1rem);
+      line-height: 1.6;
+      color: var(--text);
+      padding-top: 0.2rem;
+    }
+
+    /* ── WHY ── */
+    .why { background: var(--white); }
+
+    .why__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .why__card {
+      background: var(--green-lightest);
+      padding: 2rem 1.5rem;
+      border-top: 3px solid var(--green-mid);
+    }
+
+    .why__card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+      font-weight: 600;
+      color: var(--green-darkest);
+      margin-bottom: 0.75rem;
+    }
+
+    .why__card-text {
+      font-size: clamp(0.85rem, 1.6vw, 0.95rem);
+      font-weight: 300;
+      line-height: 1.7;
+      color: #444;
+    }
+
+    /* ── FOR WHOM ── */
+    .forwhom { background: var(--green-darkest); }
+    .forwhom .section-title { color: var(--white); }
+    .forwhom .section-label { color: var(--green-light); }
+
+    .forwhom__list {
+      list-style: none;
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+
+    .forwhom__item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      font-size: clamp(0.9rem, 2vw, 1.05rem);
+      font-weight: 300;
+      color: var(--green-light);
+      line-height: 1.5;
+    }
+
+    .forwhom__item::before {
+      content: '—';
+      color: var(--green-mid);
+      flex-shrink: 0;
+      margin-top: 0.05rem;
+    }
+
+    /* ── RESULTS ── */
+    .results { background: var(--green-lightest); }
+
+    .results__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .results__item {
+      background: var(--white);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: clamp(0.88rem, 1.8vw, 1rem);
+      font-weight: 300;
+      line-height: 1.6;
+      color: var(--text);
+    }
+
+    .results__item::before {
+      content: '✓';
+      color: var(--green-mid);
+      font-weight: 700;
+      font-size: 1rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    /* ── CTA ── */
+    .cta {
+      background: var(--green-dark);
+      text-align: center;
+    }
+
+    .cta .section-label { color: var(--green-light); }
+    .cta .section-title { color: var(--white); }
+
+    .cta__date {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: var(--green-light);
+      margin-bottom: 0.5rem;
+    }
+
+    .cta__note {
+      font-size: clamp(0.8rem, 1.6vw, 0.9rem);
+      font-weight: 300;
+      color: var(--green-light);
+      opacity: 0.75;
+      margin-top: 1.5rem;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    .cta__instruction {
+      font-size: clamp(0.8rem, 1.6vw, 0.88rem);
+      font-weight: 300;
+      color: var(--green-light);
+      opacity: 0.65;
+      margin-top: 1rem;
+    }
+
+    /* ── FADE-UP ANIMATION ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .why__grid { grid-template-columns: 1fr; }
+      .results__grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero__tag fade-up">Проект для экспертов и предпринимателей</p>
+    <h1 class="hero__title fade-up">100 дней<br>продаж</h1>
+    <p class="hero__subtitle fade-up">Перестаньте начинать заново каждый понедельник. Постройте систему продаж за 100 дней.</p>
+    <a class="btn fade-up" href="https://wa.me/77086958505?text=ПРОДАЖИ" target="_blank" rel="noopener">Узнать подробности</a>
+  </section>
+
+  <!-- ЧТО ТАКОЕ ПРОЕКТ -->
+  <section class="what">
+    <div class="container">
+      <p class="section-label fade-up">О проекте</p>
+      <h2 class="section-title fade-up">Не курс — система действий</h2>
+      <p class="section-text fade-up">Главный фокус — не на бесконечном обучении, а на действиях, которые приводят к клиентам и продажам.</p>
+      <ul class="what__list">
+        <li class="what__item fade-up">
+          <span class="what__num">1</span>
+          <span class="what__text">Понятная цель на 100 дней и конкретный план действий</span>
+        </li>
+        <li class="what__item fade-up">
+          <span class="what__num">2</span>
+          <span class="what__text">Поддержка, обратная связь и окружение единомышленников</span>
+        </li>
+        <li class="what__item fade-up">
+          <span class="what__num">3</span>
+          <span class="what__text">Еженедельная работа над продажами, а не разовый интенсив</span>
+        </li>
+        <li class="what__item fade-up">
+          <span class="what__num">4</span>
+          <span class="what__text">Точечное обучение только по необходимым темам — без воды</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ПОЧЕМУ ЭТО РАБОТАЕТ -->
+  <section class="why">
+    <div class="container">
+      <p class="section-label fade-up">Три причины</p>
+      <h2 class="section-title fade-up">Почему это работает</h2>
+      <div class="why__grid">
+        <div class="why__card fade-up">
+          <h3 class="why__card-title">Правильное окружение</h3>
+          <p class="why__card-text">Рядом люди, идущие к похожим целям. Легче сохранять дисциплину и не сходить с дистанции.</p>
+        </div>
+        <div class="why__card fade-up">
+          <h3 class="why__card-title">Достаточный срок</h3>
+          <p class="why__card-text">100 дней — время сформировать привычку, протестировать инструменты и закрепить систему.</p>
+        </div>
+        <div class="why__card fade-up">
+          <h3 class="why__card-title">Два эксперта рядом</h3>
+          <p class="why__card-text">Помогаем видеть точки роста, корректировать действия и сохранять фокус весь проект.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ДЛЯ КОГО -->
+  <section class="forwhom">
+    <div class="container">
+      <p class="section-label fade-up">Аудитория</p>
+      <h2 class="section-title fade-up">Этот проект для вас, если вы</h2>
+      <ul class="forwhom__list">
+        <li class="forwhom__item fade-up">Постоянно откладываете продажи на потом</li>
+        <li class="forwhom__item fade-up">Знаете своё дело, но не умеете регулярно продавать</li>
+        <li class="forwhom__item fade-up">Не понимаете, какие действия приводят к клиентам</li>
+        <li class="forwhom__item fade-up">Проходите обучение за обучением, но результата не больше</li>
+        <li class="forwhom__item fade-up">Часто начинаете активно, а потом снова останавливаетесь</li>
+        <li class="forwhom__item fade-up">Хотите выйти на новый уровень дохода через систему</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- РЕЗУЛЬТАТЫ -->
+  <section class="results">
+    <div class="container">
+      <p class="section-label fade-up">Итог</p>
+      <h2 class="section-title fade-up">Через 100 дней у вас появится</h2>
+      <div class="results__grid">
+        <div class="results__item fade-up">Понятный план продаж и финансовая цель</div>
+        <div class="results__item fade-up">Регулярные действия вместо хаотичных попыток</div>
+        <div class="results__item fade-up">Больше уверенности в продажах</div>
+        <div class="results__item fade-up">Система привлечения клиентов</div>
+        <div class="results__item fade-up">Окружение, которое поддерживает рост</div>
+        <div class="results__item fade-up">Навык доводить начатое до результата</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <p class="section-label fade-up">Старт</p>
+      <p class="cta__date fade-up">1 августа</p>
+      <h2 class="section-title fade-up">Хотите подробности<br>и спецпредложение?</h2>
+      <a class="btn fade-up" href="https://wa.me/77086958505?text=ПРОДАЖИ" target="_blank" rel="noopener">Написать в WhatsApp</a>
+      <p class="cta__note fade-up">Количество мест ограничено, чтобы сохранить качество обратной связи и сопровождения.</p>
+      <p class="cta__instruction fade-up">Напишите слово «ПРОДАЖИ» — получите программу и спецпредложение для первых участников.</p>
+    </div>
+  </section>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
