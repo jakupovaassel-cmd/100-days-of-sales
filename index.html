@@ -11,22 +11,22 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --cream:       #f4f1e8;
-      --cream-dark:  #e8e4d6;
-      --green-mid:   #3a7d44;
-      --green-dark:  #144d20;
-      --green-darkest: #07200d;
-      --accent:      #5db870;
-      --white:       #ffffff;
-      --text-dark:   #0f1a12;
-      --text-mid:    #2e4033;
+      --cream:        #f4f1e8;
+      --cream-dark:   #e8e4d6;
+      --green-light:  #5db870;
+      --green-mid:    #0c3318;
+      --green-dark:   #0a2912;
+      --green-darkest:#07200d;
+      --accent:       #4caf60;
+      --white:        #ffffff;
+      --text-dark:    #0f1a12;
+      --text-mid:     #2e4033;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Montserrat', sans-serif;
-      font-weight: 400;
       color: var(--text-dark);
       background: var(--cream);
       overflow-x: hidden;
@@ -42,177 +42,170 @@
       align-items: center;
       justify-content: space-between;
       padding: 0 clamp(1.25rem, 5vw, 3rem);
-      height: 60px;
+      height: 62px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
     }
 
     .nav__logo {
       font-weight: 700;
-      font-size: clamp(0.85rem, 2vw, 1rem);
+      font-size: clamp(0.82rem, 1.8vw, 0.95rem);
       color: var(--white);
-      letter-spacing: 0.04em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
     }
 
+    /* ── BUTTONS ── */
     .btn {
       display: inline-block;
       font-family: 'Montserrat', sans-serif;
       font-weight: 700;
-      font-size: clamp(0.78rem, 1.5vw, 0.9rem);
+      font-size: clamp(0.78rem, 1.4vw, 0.88rem);
       letter-spacing: 0.03em;
       text-decoration: none;
       border-radius: 3px;
-      transition: background 0.22s, transform 0.18s, opacity 0.22s;
-      cursor: pointer;
       border: none;
+      cursor: pointer;
+      transition: background 0.2s, opacity 0.2s, transform 0.18s;
     }
+    .btn--nav   { padding: 0.5rem 1.2rem; background: var(--accent); color: var(--white); }
+    .btn--nav:hover { background: #3d9b52; }
 
-    .btn--sm {
-      padding: 0.55rem 1.25rem;
-      background: var(--accent);
-      color: var(--white);
-    }
-    .btn--sm:hover { background: var(--green-mid); }
+    .btn--primary { padding: clamp(0.85rem,2vw,1rem) clamp(1.75rem,4vw,2.5rem); background: var(--accent); color: var(--white); }
+    .btn--primary:hover { background: #3d9b52; transform: translateY(-2px); }
 
-    .btn--primary {
-      padding: clamp(0.85rem, 2vw, 1rem) clamp(1.75rem, 4vw, 2.5rem);
-      background: var(--accent);
-      color: var(--white);
-    }
-    .btn--primary:hover { background: var(--green-mid); transform: translateY(-2px); }
-
-    .btn--outline {
-      padding: clamp(0.85rem, 2vw, 1rem) clamp(1.75rem, 4vw, 2.5rem);
-      background: transparent;
-      color: var(--white);
-      border: 2px solid rgba(255,255,255,0.45);
-    }
+    .btn--outline { padding: clamp(0.85rem,2vw,1rem) clamp(1.75rem,4vw,2.5rem); background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.4); }
     .btn--outline:hover { border-color: var(--white); transform: translateY(-2px); }
 
-    .btn--kaspi {
-      padding: clamp(0.85rem, 2vw, 1rem) clamp(1.75rem, 4vw, 2.5rem);
-      background: var(--white);
-      color: var(--green-darkest);
-    }
+    .btn--kaspi { padding: clamp(0.85rem,2vw,1rem) clamp(1.75rem,4vw,2.5rem); background: var(--white); color: var(--green-darkest); }
     .btn--kaspi:hover { opacity: 0.88; transform: translateY(-2px); }
 
-    /* ── SECTIONS ── */
+    .btn--strip { padding: clamp(0.85rem,2vw,1rem) clamp(2rem,5vw,3rem); background: var(--white); color: var(--green-darkest); }
+    .btn--strip:hover { opacity: 0.9; transform: translateY(-2px); }
+
+    /* ── LAYOUT ── */
     .sec-cream  { background: var(--cream); }
-    .sec-dark   { background: var(--green-darkest); }
-    .sec-green  { background: var(--green-dark); }
+    .sec-mid    { background: var(--green-mid); }
+    .sec-dark   { background: var(--green-dark); }
+    .sec-darkest{ background: var(--green-darkest); }
+    .sec-accent { background: var(--accent); }
 
     section:not(.hero) {
-      padding: clamp(4rem, 10vw, 7rem) clamp(1.25rem, 6vw, 3rem);
+      padding: clamp(4rem,10vw,7rem) clamp(1.25rem,6vw,3rem);
     }
 
-    .container { max-width: 1060px; margin: 0 auto; }
+    .container { max-width: 1080px; margin: 0 auto; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2rem,5vw,4rem);
+      align-items: start;
+    }
+    .two-col--13 { grid-template-columns: 1fr 2fr; }
 
     .label {
-      font-size: clamp(0.65rem, 1.3vw, 0.75rem);
+      font-size: clamp(0.63rem,1.2vw,0.73rem);
       font-weight: 700;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      margin-bottom: 0.9rem;
+      margin-bottom: 0.85rem;
     }
     .label--light { color: var(--accent); }
-    .label--dark  { color: var(--green-mid); }
+    .label--dark  { color: var(--accent); }
 
     .h2 {
-      font-size: clamp(1.9rem, 5vw, 3.2rem);
+      font-size: clamp(1.8rem,4.5vw,3rem);
       font-weight: 800;
       line-height: 1.1;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.2rem;
     }
     .h2--light { color: var(--white); }
     .h2--dark  { color: var(--green-darkest); }
 
     .body-text {
-      font-size: clamp(0.92rem, 1.8vw, 1.05rem);
+      font-size: clamp(0.9rem,1.7vw,1rem);
       font-weight: 400;
       line-height: 1.8;
     }
-    .body-text--light { color: rgba(255,255,255,0.75); }
+    .body-text--light { color: rgba(255,255,255,0.72); }
     .body-text--dark  { color: var(--text-mid); }
 
     /* ── HERO ── */
     .hero {
       min-height: 100svh;
-      padding-top: 60px;
+      padding-top: 62px;
       background: var(--green-darkest);
       display: flex;
       align-items: center;
-      padding-left: clamp(1.25rem, 6vw, 3rem);
-      padding-right: clamp(1.25rem, 6vw, 3rem);
+      padding-left: clamp(1.25rem,6vw,3rem);
+      padding-right: clamp(1.25rem,6vw,3rem);
     }
 
     .hero__inner {
-      max-width: 1060px;
+      max-width: 1080px;
       margin: 0 auto;
       width: 100%;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: clamp(2rem, 5vw, 4rem);
+      gap: clamp(2rem,5vw,4rem);
       align-items: center;
-      padding: clamp(3rem, 8vw, 5rem) 0;
+      padding: clamp(3rem,8vw,5rem) 0;
     }
 
     .hero__badge {
       display: inline-block;
-      font-size: clamp(0.65rem, 1.2vw, 0.75rem);
+      font-size: clamp(0.63rem,1.1vw,0.73rem);
       font-weight: 700;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--accent);
       border: 1px solid var(--accent);
       border-radius: 2px;
-      padding: 0.35rem 0.85rem;
-      margin-bottom: 1.5rem;
+      padding: 0.32rem 0.8rem;
+      margin-bottom: 1.4rem;
     }
 
     .hero__title {
-      font-size: clamp(3rem, 8vw, 6rem);
+      font-size: clamp(3rem,8vw,5.5rem);
       font-weight: 800;
       line-height: 1;
       color: var(--white);
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.2rem;
     }
-
-    .hero__title span {
-      color: var(--accent);
-      display: block;
-    }
+    .hero__title span { color: var(--accent); display: block; }
 
     .hero__sub {
-      font-size: clamp(0.92rem, 2vw, 1.05rem);
+      font-size: clamp(0.9rem,1.8vw,1rem);
       font-weight: 400;
-      color: rgba(255,255,255,0.7);
-      line-height: 1.7;
+      color: rgba(255,255,255,0.68);
+      line-height: 1.75;
       margin-bottom: 2rem;
     }
 
     .hero__stats {
       display: flex;
-      gap: 2rem;
+      gap: clamp(1.5rem,4vw,2.5rem);
       margin-top: 2.5rem;
       flex-wrap: wrap;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.12);
     }
 
     .stat__num {
-      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-size: clamp(1.5rem,3vw,2rem);
       font-weight: 800;
       color: var(--white);
       line-height: 1;
     }
-
-    .stat__label {
-      font-size: clamp(0.7rem, 1.3vw, 0.8rem);
+    .stat__lbl {
+      font-size: clamp(0.65rem,1.2vw,0.75rem);
       font-weight: 500;
-      color: rgba(255,255,255,0.5);
+      color: rgba(255,255,255,0.45);
       margin-top: 0.3rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
     }
 
-    /* hero right — 2×2 cards */
     .hero__cards {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -220,224 +213,242 @@
     }
 
     .hero__card {
-      background: rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.1);
       border-radius: 4px;
-      padding: 1.5rem 1.25rem;
+      padding: 1.4rem 1.2rem;
     }
-
     .hero__card-num {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: 800;
       color: var(--accent);
       margin-bottom: 0.5rem;
     }
-
     .hero__card-text {
-      font-size: clamp(0.78rem, 1.4vw, 0.88rem);
+      font-size: clamp(0.76rem,1.3vw,0.86rem);
       font-weight: 400;
-      color: rgba(255,255,255,0.7);
+      color: rgba(255,255,255,0.68);
       line-height: 1.55;
     }
 
-    /* ── WHAT ── */
-    .what__text { max-width: 640px; }
+    /* ── WHAT (1/3 + 2/3) ── */
+    .what__left { padding-top: 0.3rem; }
+    .what__right .body-text { max-width: 560px; }
 
     /* ── WHY ── */
-    .why__grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-top: 2.5rem;
+    .why__cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
     }
-
     .why__card {
-      background: rgba(255,255,255,0.06);
-      border-top: 3px solid var(--accent);
-      padding: 2rem 1.5rem;
-      border-radius: 2px;
+      background: rgba(255,255,255,0.05);
+      border-left: 3px solid var(--accent);
+      padding: 1.4rem 1.5rem;
+      border-radius: 0 3px 3px 0;
     }
-
     .why__card-title {
-      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-size: clamp(0.95rem,1.8vw,1.1rem);
       font-weight: 700;
       color: var(--white);
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.5rem;
     }
-
     .why__card-text {
-      font-size: clamp(0.82rem, 1.5vw, 0.93rem);
+      font-size: clamp(0.82rem,1.5vw,0.92rem);
       font-weight: 400;
-      color: rgba(255,255,255,0.65);
+      color: rgba(255,255,255,0.62);
       line-height: 1.7;
     }
 
     /* ── PRICE ── */
+    .price__left { }
+    .price__left .body-text { margin-bottom: 1.5rem; }
+    .price__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: clamp(0.82rem,1.5vw,0.92rem);
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(77,175,96,0.4);
+      padding-bottom: 1px;
+      transition: border-color 0.2s;
+    }
+    .price__link:hover { border-color: var(--accent); }
+
     .price__card {
-      max-width: 520px;
-      margin: 2.5rem auto 0;
       background: var(--green-darkest);
       border-radius: 6px;
-      padding: clamp(2rem, 5vw, 3rem);
-      text-align: center;
+      padding: clamp(2rem,4vw,2.5rem);
     }
-
     .price__old {
-      font-size: clamp(1rem, 2vw, 1.1rem);
+      font-size: clamp(0.95rem,1.8vw,1.05rem);
       font-weight: 500;
-      color: rgba(255,255,255,0.4);
+      color: rgba(255,255,255,0.35);
       text-decoration: line-through;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.3rem;
     }
-
     .price__new {
-      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      font-size: clamp(2.5rem,5vw,3.2rem);
       font-weight: 800;
       color: var(--white);
       line-height: 1;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
     }
-
-    .price__installment {
-      font-size: clamp(0.82rem, 1.5vw, 0.92rem);
+    .price__install {
+      font-size: clamp(0.78rem,1.4vw,0.88rem);
       font-weight: 400;
-      color: rgba(255,255,255,0.55);
-      margin-bottom: 0.75rem;
+      color: rgba(255,255,255,0.48);
+      margin-bottom: 1rem;
     }
-
-    .price__deadline {
+    .price__badge {
       display: inline-block;
       background: var(--accent);
       color: var(--white);
-      font-size: clamp(0.72rem, 1.3vw, 0.82rem);
+      font-size: clamp(0.7rem,1.2vw,0.78rem);
       font-weight: 700;
-      letter-spacing: 0.05em;
-      padding: 0.4rem 1rem;
+      letter-spacing: 0.04em;
+      padding: 0.35rem 0.9rem;
       border-radius: 2px;
-      margin-bottom: 1.75rem;
+      margin-bottom: 1.6rem;
     }
-
     .price__btns {
       display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 1.25rem;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
     }
-
     .price__note {
-      font-size: clamp(0.72rem, 1.3vw, 0.8rem);
-      color: rgba(255,255,255,0.35);
+      font-size: clamp(0.68rem,1.2vw,0.76rem);
+      color: rgba(255,255,255,0.3);
     }
 
     /* ── FOR WHOM ── */
-    .forwhom__list {
+    .forwhom__checklist {
       list-style: none;
-      display: grid;
+      display: flex;
+      flex-direction: column;
       gap: 0.85rem;
-      margin-top: 2rem;
+      margin-top: 0.5rem;
     }
-
     .forwhom__item {
       display: flex;
       align-items: flex-start;
-      gap: 0.85rem;
-      font-size: clamp(0.9rem, 1.8vw, 1.05rem);
+      gap: 0.75rem;
+      font-size: clamp(0.88rem,1.7vw,1rem);
       font-weight: 400;
-      color: rgba(255,255,255,0.8);
-      line-height: 1.55;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.5;
     }
-
     .forwhom__item::before {
       content: '→';
       color: var(--accent);
       flex-shrink: 0;
+      font-weight: 700;
     }
 
     /* ── RESULTS ── */
     .results__grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3,1fr);
       gap: 1rem;
       margin-top: 2rem;
     }
-
     .results__card {
       background: var(--cream-dark);
-      border-top: 3px solid var(--green-mid);
-      padding: 1.5rem 1.25rem;
+      border-top: 3px solid var(--accent);
+      padding: 1.4rem 1.25rem;
       border-radius: 2px;
-      font-size: clamp(0.85rem, 1.6vw, 0.95rem);
+      font-size: clamp(0.83rem,1.5vw,0.93rem);
       font-weight: 500;
       color: var(--text-dark);
       line-height: 1.5;
       display: flex;
-      align-items: flex-start;
       gap: 0.6rem;
+      align-items: flex-start;
     }
-
     .results__card::before {
       content: '✓';
-      color: var(--green-mid);
+      color: var(--accent);
       font-weight: 700;
       flex-shrink: 0;
+    }
+
+    /* ── FAQ / QUESTIONS ── */
+    .faq__cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .faq__card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 4px;
+      padding: 1.5rem 1.4rem;
+    }
+    .faq__card-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+    .faq__card-title {
+      font-size: clamp(0.92rem,1.7vw,1.05rem);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.4rem;
+    }
+    .faq__card-text {
+      font-size: clamp(0.8rem,1.4vw,0.9rem);
+      font-weight: 400;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.65;
     }
 
     /* ── CTA STRIP ── */
     .cta-strip {
       background: var(--accent);
-      padding: clamp(3rem, 7vw, 5rem) clamp(1.25rem, 6vw, 3rem);
+      padding: clamp(3.5rem,8vw,6rem) clamp(1.25rem,6vw,3rem);
       text-align: center;
     }
-
     .cta-strip__title {
-      font-size: clamp(1.6rem, 4vw, 2.5rem);
+      font-size: clamp(1.6rem,4vw,2.6rem);
       font-weight: 800;
       color: var(--white);
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.7rem;
     }
-
     .cta-strip__sub {
-      font-size: clamp(0.88rem, 1.8vw, 1rem);
+      font-size: clamp(0.88rem,1.7vw,1rem);
       font-weight: 400;
-      color: rgba(255,255,255,0.85);
+      color: rgba(255,255,255,0.82);
       margin-bottom: 1.75rem;
     }
-
     .cta-strip__date {
-      margin-top: 1.25rem;
-      font-size: clamp(0.82rem, 1.5vw, 0.92rem);
+      margin-top: 1.2rem;
+      font-size: clamp(0.8rem,1.4vw,0.9rem);
       font-weight: 500;
-      color: rgba(255,255,255,0.75);
+      color: rgba(255,255,255,0.7);
     }
-
-    .btn--strip {
-      padding: clamp(0.85rem, 2vw, 1rem) clamp(2rem, 5vw, 3rem);
-      background: var(--white);
-      color: var(--green-darkest);
-    }
-    .btn--strip:hover { opacity: 0.9; transform: translateY(-2px); }
 
     /* ── FADE UP ── */
     .fade-up {
       opacity: 0;
-      transform: translateY(28px);
+      transform: translateY(26px);
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
-      .hero__inner { grid-template-columns: 1fr; }
+      .hero__inner,
+      .two-col,
+      .two-col--13 { grid-template-columns: 1fr; }
       .hero__cards { grid-template-columns: 1fr 1fr; }
-      .why__grid { grid-template-columns: 1fr; }
       .results__grid { grid-template-columns: 1fr 1fr; }
     }
-
     @media (max-width: 480px) {
-      .hero__cards { grid-template-columns: 1fr; }
+      .hero__cards,
       .results__grid { grid-template-columns: 1fr; }
-      .hero__stats { gap: 1.25rem; }
     }
   </style>
 </head>
@@ -446,34 +457,23 @@
   <!-- NAVBAR -->
   <nav class="nav">
     <span class="nav__logo">100 дней продаж</span>
-    <a class="btn btn--sm" href="https://wa.me/77086958505?text=ПРОДАЖИ" target="_blank" rel="noopener">Узнать подробнее</a>
+    <a class="btn btn--nav" href="https://wa.me/77086958505?text=ПРОДАЖИ" target="_blank" rel="noopener">Узнать подробнее</a>
   </nav>
 
   <!-- HERO -->
   <section class="hero">
     <div class="hero__inner">
-      <!-- Left -->
-      <div class="hero__left fade-up">
+      <div class="fade-up">
         <span class="hero__badge">Практический проект сопровождения</span>
         <h1 class="hero__title">100 дней<span>продаж</span></h1>
         <p class="hero__sub">Перестаньте начинать заново каждый понедельник. Постройте систему продаж за 100 дней — для экспертов, мастеров и самозанятых.</p>
         <a class="btn btn--primary" href="https://wa.me/77086958505?text=ПРОДАЖИ" target="_blank" rel="noopener">Узнать подробнее</a>
         <div class="hero__stats">
-          <div class="stat">
-            <div class="stat__num">100</div>
-            <div class="stat__label">дней работы</div>
-          </div>
-          <div class="stat">
-            <div class="stat__num">2</div>
-            <div class="stat__label">эксперта рядом</div>
-          </div>
-          <div class="stat">
-            <div class="stat__num">1 авг</div>
-            <div class="stat__label">старт</div>
-          </div>
+          <div class="stat"><div class="stat__num">100</div><div class="stat__lbl">дней работы</div></div>
+          <div class="stat"><div class="stat__num">2</div><div class="stat__lbl">эксперта рядом</div></div>
+          <div class="stat"><div class="stat__num">1 авг</div><div class="stat__lbl">старт</div></div>
         </div>
       </div>
-      <!-- Right — 2×2 cards -->
       <div class="hero__cards fade-up">
         <div class="hero__card">
           <div class="hero__card-num">01</div>
@@ -495,69 +495,92 @@
     </div>
   </section>
 
-  <!-- ЧТО ТАКОЕ ПРОЕКТ -->
+  <!-- ЧТО ТАКОЕ ПРОЕКТ (1/3 + 2/3) -->
   <section class="sec-cream">
     <div class="container">
-      <p class="label label--dark fade-up">О проекте</p>
-      <h2 class="h2 h2--dark fade-up">Не курс — система действий</h2>
-      <p class="body-text body-text--dark what__text fade-up">Главный фокус — не на бесконечном обучении, а на действиях, которые приводят к клиентам и продажам. Вместо очередного курса вы получите структуру, поддержку и чёткий план. Наша задача — помочь пройти путь от намерения «надо продавать» до реальных продаж и стабильной системы работы.</p>
-    </div>
-  </section>
-
-  <!-- ТРИ ПРИЧИНЫ -->
-  <section class="sec-dark">
-    <div class="container">
-      <p class="label label--light fade-up">Почему это работает</p>
-      <h2 class="h2 h2--light fade-up">Три причины прийти</h2>
-      <div class="why__grid">
-        <div class="why__card fade-up">
-          <h3 class="why__card-title">Правильное окружение</h3>
-          <p class="why__card-text">Рядом люди, идущие к похожим целям. Легче сохранять дисциплину и не сходить с дистанции.</p>
+      <div class="two-col two-col--13">
+        <div class="what__left fade-up">
+          <p class="label label--dark">О проекте</p>
+          <h2 class="h2 h2--dark">Не курс —<br>система действий</h2>
         </div>
-        <div class="why__card fade-up">
-          <h3 class="why__card-title">Достаточный срок</h3>
-          <p class="why__card-text">100 дней — время сформировать привычку, протестировать инструменты продаж и закрепить систему.</p>
-        </div>
-        <div class="why__card fade-up">
-          <h3 class="why__card-title">Два эксперта рядом</h3>
-          <p class="why__card-text">Помогаем видеть точки роста, корректировать действия и сохранять фокус на протяжении всего проекта.</p>
+        <div class="what__right fade-up">
+          <p class="body-text body-text--dark">Главный фокус — не на бесконечном обучении, а на действиях, которые приводят к клиентам и продажам. Вместо очередного курса вы получите структуру, поддержку и чёткий план. Наша задача — помочь пройти путь от намерения «надо продавать» до реальных продаж и стабильной системы работы.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- СТОИМОСТЬ -->
-  <section class="sec-green">
+  <!-- ТРИ ПРИЧИНЫ (1/2 текст + 1/2 карточки) -->
+  <section class="sec-mid">
     <div class="container">
-      <p class="label label--light fade-up" style="text-align:center">Стоимость</p>
-      <h2 class="h2 h2--light fade-up" style="text-align:center">Инвестиция в систему продаж</h2>
-      <div class="price__card fade-up">
-        <p class="price__old">210 000 ₸</p>
-        <p class="price__new">175 000 ₸</p>
-        <p class="price__installment">или от ~14 583 ₸/мес на 12 месяцев через Kaspi</p>
-        <span class="price__deadline">Успейте до 10 июля — экономия 35 000 ₸</span>
-        <div class="price__btns">
-          <a class="btn btn--kaspi" href="https://pay.kaspi.kz/pay/gvzlda5w" target="_blank" rel="noopener">Оплатить через Kaspi</a>
-          <a class="btn btn--outline" href="https://wa.me/77086958505?text=ПРОДАЖИ" target="_blank" rel="noopener">Узнать подробнее</a>
+      <div class="two-col">
+        <div class="fade-up">
+          <p class="label label--light">Почему это работает</p>
+          <h2 class="h2 h2--light">Три причины прийти</h2>
+          <p class="body-text body-text--light">Мы создали структуру, которая помогает дойти до результата — а не просто получить знания.</p>
         </div>
-        <p class="price__note">После 10 июля стоимость вернётся к 210 000 ₸</p>
+        <div class="why__cards fade-up">
+          <div class="why__card">
+            <div class="why__card-title">Правильное окружение</div>
+            <p class="why__card-text">Рядом люди, идущие к похожим целям. Легче сохранять дисциплину и не сходить с дистанции.</p>
+          </div>
+          <div class="why__card">
+            <div class="why__card-title">Достаточный срок</div>
+            <p class="why__card-text">100 дней — время сформировать привычку, протестировать инструменты продаж и закрепить систему.</p>
+          </div>
+          <div class="why__card">
+            <div class="why__card-title">Два эксперта рядом</div>
+            <p class="why__card-text">Помогаем видеть точки роста, корректировать действия и сохранять фокус на протяжении всего проекта.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ДЛЯ КОГО -->
+  <!-- СТОИМОСТЬ (1/2 + 1/2) -->
   <section class="sec-dark">
     <div class="container">
-      <p class="label label--light fade-up">Аудитория</p>
-      <h2 class="h2 h2--light fade-up">Этот проект для вас, если вы</h2>
-      <ul class="forwhom__list">
-        <li class="forwhom__item fade-up">Постоянно откладываете продажи на потом</li>
-        <li class="forwhom__item fade-up">Знаете своё дело, но не умеете регулярно продавать</li>
-        <li class="forwhom__item fade-up">Не понимаете, какие действия приводят к клиентам</li>
-        <li class="forwhom__item fade-up">Проходите обучение за обучением, но результата не больше</li>
-        <li class="forwhom__item fade-up">Часто начинаете активно, а потом снова останавливаетесь</li>
-        <li class="forwhom__item fade-up">Хотите выйти на новый уровень дохода через систему</li>
-      </ul>
+      <div class="two-col">
+        <div class="price__left fade-up">
+          <p class="label label--light">Стоимость</p>
+          <h2 class="h2 h2--light">Инвестиция в систему продаж</h2>
+          <p class="body-text body-text--light">Старт — 1 августа. Количество мест ограничено, чтобы сохранить качество обратной связи.</p>
+          <a class="price__link" href="https://drive.google.com/file/d/1GXLStUKlTTCwqJRmvV5XQ5ilV8wK62rk/view?usp=drivesdk" target="_blank" rel="noopener">
+            ↓ Скачать подробную программу
+          </a>
+        </div>
+        <div class="price__card fade-up">
+          <p class="price__old">300 000 ₸</p>
+          <p class="price__new">175 000 ₸</p>
+          <p class="price__install">или от ~14 583 ₸/мес на 12 месяцев через Kaspi</p>
+          <span class="price__badge">Успейте до 15 июля — экономия 125 000 ₸</span>
+          <div class="price__btns">
+            <a class="btn btn--kaspi" href="https://pay.kaspi.kz/pay/gvzlda5w" target="_blank" rel="noopener">Оплатить через Kaspi</a>
+            <a class="btn btn--outline" href="https://wa.me/77086958505?text=ПРОДАЖИ" target="_blank" rel="noopener">Узнать подробнее</a>
+          </div>
+          <p class="price__note">После 15 июля стоимость вернётся к 300 000 ₸</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ДЛЯ КОГО (1/2 текст + 1/2 чеклист) -->
+  <section class="sec-mid">
+    <div class="container">
+      <div class="two-col">
+        <div class="fade-up">
+          <p class="label label--light">Аудитория</p>
+          <h2 class="h2 h2--light">Этот проект для вас, если вы</h2>
+        </div>
+        <ul class="forwhom__checklist fade-up">
+          <li class="forwhom__item">Постоянно откладываете продажи на потом</li>
+          <li class="forwhom__item">Знаете своё дело, но не умеете регулярно продавать</li>
+          <li class="forwhom__item">Не понимаете, какие действия приводят к клиентам</li>
+          <li class="forwhom__item">Проходите обучение за обучением, но результата не больше</li>
+          <li class="forwhom__item">Часто начинаете активно, а потом снова останавливаетесь</li>
+          <li class="forwhom__item">Хотите выйти на новый уровень дохода через систему</li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -573,6 +596,32 @@
         <div class="results__card fade-up">Система привлечения клиентов</div>
         <div class="results__card fade-up">Окружение, которое поддерживает рост</div>
         <div class="results__card fade-up">Навык доводить начатое до результата</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ОСТАЛИСЬ ВОПРОСЫ (1/2 + 1/2 карточки) -->
+  <section class="sec-darkest">
+    <div class="container">
+      <div class="two-col">
+        <div class="fade-up">
+          <p class="label label--light">Поддержка</p>
+          <h2 class="h2 h2--light">Остались вопросы?</h2>
+          <p class="body-text body-text--light" style="margin-bottom:2rem">Мы готовы ответить на любые вопросы и помочь принять решение.</p>
+          <a class="btn btn--primary" href="https://wa.me/77086958505?text=Здравствуйте, у меня есть вопросы по проекту 100 дней продаж" target="_blank" rel="noopener">Написать в WhatsApp</a>
+        </div>
+        <div class="faq__cards fade-up">
+          <div class="faq__card">
+            <span class="faq__card-icon">💬</span>
+            <div class="faq__card-title">Бесплатная консультация</div>
+            <p class="faq__card-text">Расскажем подробнее о программе и ответим на все вопросы</p>
+          </div>
+          <div class="faq__card">
+            <span class="faq__card-icon">🎯</span>
+            <div class="faq__card-title">Персональный подход</div>
+            <p class="faq__card-text">Поможем оценить, насколько проект подходит именно вам</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
